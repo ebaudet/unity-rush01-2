@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Players
+  - blue
+  - red
+  - yellow
+  - red_tp
+  - yellow_tp
+  - blue_tp
+  - tp
+  - bouton
+  - button_change
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - jaune
+  - rouge
+  - bleu
+  - prouge
+  - pjaune
+  - pbleu
+  - mauve
+  - orange
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
