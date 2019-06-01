@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public Transform player;
     public float y;
+    public bool dropping = false;
+    public GameObject Player;
 
     // Use this for initialization
     void Awake()
