@@ -16,6 +16,7 @@ public class Zombie_scripts : MonoBehaviour
     public float time = 0;
     public Move_maya player_stats;
     public bool ishiting;
+    public GameObject health_pot;
 
 
     public int STR;
@@ -63,7 +64,6 @@ public class Zombie_scripts : MonoBehaviour
 			{
 				ischasing = false;
                 animator.SetInteger("State", 2);
-                Debug.Log("State 2");
 				nav.SetDestination(transform.position);
 			}
             if (player_stats.hp < 0)
@@ -80,7 +80,6 @@ public class Zombie_scripts : MonoBehaviour
 			{
 				animator.SetInteger("State", 1);
 			}
-            Debug.Log("ischasing" + ischasing);
         }
         else if (m_isDead == false)
         {
@@ -114,6 +113,8 @@ public class Zombie_scripts : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
         }
+        if (Random.Range(1,10)>5)
+            Instantiate(health_pot, (transform.position + (Vector3.up*3)), transform.rotation);
         Destroy(this.gameObject);
     }
 }

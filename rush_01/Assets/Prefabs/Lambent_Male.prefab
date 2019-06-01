@@ -2489,6 +2489,7 @@ MonoBehaviour:
   time: 0
   player_stats: {fileID: 0}
   ishiting: 0
+  health_pot: {fileID: 1130969580756052, guid: 9895f26ab480f42799f0042c6bf2901d, type: 2}
   STR: 0
   AGI: 0
   CON: 0
