@@ -513,6 +513,11 @@ Prefab:
       propertyPath: die_panel
       value: 
       objectReference: {fileID: 1777828321}
+    - target: {fileID: 114900741198280616, guid: 2a6a4d574daf84aceb1bcda20bd591dd,
+        type: 2}
+      propertyPath: level
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a6a4d574daf84aceb1bcda20bd591dd, type: 2}
   m_IsPrefabParent: 0

@@ -41,12 +41,12 @@ public class Zombie_scripts : MonoBehaviour
 
 		level = player_stats.level;
         // + 15% par lvl
-        CON = (int)(2 * (1 + 0.15 * (level - 1)));
-        AGI = (int)(10 * (1 + 0.15 * (level - 1)));
-        STR = (int)(4 * (1 + 0.15 * (level - 1)));
-        ARMOR = (int)(10 * (1 + 0.15 * (level - 1)));
-        xp = (int)(20 * (1 + 0.15 * (level - 1)));
-        money = (int)(2 * (1 + 0.15 * (level - 1)));
+        CON = (int)(2 * (1 + 0.4 * (level - 1)));
+        AGI = (int)(10 * (1 + 0.4 * (level - 1)));
+        STR = (int)(4 * (1 + 0.4 * (level - 1)));
+        ARMOR = (int)(10 * (1 + 0.2 * (level - 1)));
+        xp = (int)(20 * (1 + 0.6 * (level - 1)));
+        money = (int)(2 * (1 + 0.5 * (level - 1)));
 
         hp = 5 * CON;
         minDMG = STR / 2;
