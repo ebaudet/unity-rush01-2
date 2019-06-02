@@ -161,14 +161,17 @@ public class Move_maya : MonoBehaviour
                 xp += zombie_stats.xp;
                 money += zombie_stats.money;
                 if (xp >= xpForNext)
-                {
-                    xp -= xpForNext;
-                    level += 1;
-                    stats_point += 5;
-                    xpForNext = (int)(xpForNext * 1.5);
-                    set_stats();
-                }
+                    LevelUp();
             }
         }
+    }
+
+    public void LevelUp()
+    {
+        xp -= xpForNext;
+        level += 1;
+        stats_point += 5;
+        xpForNext = (int)(xpForNext * 1.5);
+        set_stats();
     }
 }
