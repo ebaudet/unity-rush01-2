@@ -16,6 +16,8 @@ public class Hp_script : MonoBehaviour
 
     void Update()
     {
+        if (!player.alive)
+            return;
         slider.maxValue = player.CON * 5;
         slider.value = player.hp;
         txt.text = Mathf.Clamp(player.hp, 0, player.CON * 5) + "/" + player.CON * 5;

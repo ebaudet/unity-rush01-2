@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class Stats_1 : MonoBehaviour
 {
 
-    public Move_maya player_stats;
+    public Move_maya player;
     public Text txt;
 
     // Update is called once per frame
     void Update()
     {
-        txt.text = "FOR = " + player_stats.STR + "\n\nAGI = " + player_stats.AGI + "\n\nCON = " + player_stats.CON + "\n\ndmgMin = " + player_stats.minDMG + "\n\ndmgMax = " + player_stats.maxDMG;
+        if (!player.alive)
+            return;
+        txt.text = "FOR = " + player.STR + "\n\nAGI = " + player.AGI + "\n\nCON = " + player.CON + "\n\ndmgMin = " + player.minDMG + "\n\ndmgMax = " + player.maxDMG;
     }
 }

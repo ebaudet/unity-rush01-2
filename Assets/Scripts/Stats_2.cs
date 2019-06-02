@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class Stats_2 : MonoBehaviour
 {
-    public Move_maya player_stats;
+    public Move_maya player;
     public Text txt;
 
     // Update is called once per frame
     void Update()
     {
-        txt.text = "XP = " + player_stats.xp + "\n\nNext lvl = " + AbbrevationUtility.AbbreviateNumber(player_stats.xpForNext) + "\n\nHPmax = " + player_stats.CON * 5 + "\n\nPoints = " + player_stats.stats_point;
+        if (!player.alive)
+            return;
+        txt.text = "XP = " + player.xp + "\n\nNext lvl = " + AbbrevationUtility.AbbreviateNumber(player.xpForNext) + "\n\nHPmax = " + player.CON * 5 + "\n\nPoints = " + player.stats_point;
     }
 }
 

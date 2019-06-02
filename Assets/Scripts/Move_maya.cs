@@ -6,12 +6,11 @@ using UnityEngine.EventSystems;
 
 public class Move_maya : MonoBehaviour
 {
-
-
     public Animator animator;
     public float atk_range;
     public string tag;
     public bool isazombie;
+    public bool alive = true;
 
     public int STR;
     public int AGI;
@@ -46,24 +45,17 @@ public class Move_maya : MonoBehaviour
     {
         if (!UiManager)
             UiManager = GameObject.Find("HUD Player").GetComponent<UiManager>();
+        nav = GetComponent<NavMeshAgent>();
     }
 
-    // Use this for initialization
     void Start()
     {
+        if (!GameManager.gm.LoadPlayerData())
+        {
+            StatsInit();
+        }
         isazombie = false;
         target = null;
-        nav = GetComponent<NavMeshAgent>();
-        CON = 15;
-        AGI = 10;
-        STR = 8;
-        ARMOR = 20;
-        level = 1;
-        xp = 0;
-        xpForNext = 100;
-        money = 0;
-        stats_point = 0;
-
         set_stats();
     }
 
@@ -90,6 +82,7 @@ public class Move_maya : MonoBehaviour
 
     void set_stats()
     {
+
         hp = 5 * CON;
         minDMG = STR / 2;
         maxDMG = minDMG + 4;
@@ -141,6 +134,17 @@ public class Move_maya : MonoBehaviour
             animator.SetInteger("State", 3);
             die_panel.SetActive(true);
             this.enabled = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!alive)
+            return;
+        if (hp <= 0)
+        {
+            StatsInit();
+            alive = false;
         }
     }
 
@@ -197,5 +201,18 @@ public class Move_maya : MonoBehaviour
         object_to_blink.SetActive(true);
         yield return new WaitForSeconds(time);
         object_to_blink.SetActive(false);
+    }
+
+    public void StatsInit()
+    {
+        CON = 15;
+        AGI = 10;
+        STR = 8;
+        ARMOR = 20;
+        level = 1;
+        xp = 0;
+        xpForNext = 100;
+        money = 0;
+        stats_point = 0;
     }
 }
