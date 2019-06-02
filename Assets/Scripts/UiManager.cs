@@ -7,6 +7,7 @@ public class UiManager : MonoBehaviour
     public static string ToolTip;
     public GameObject InventoryUi;
     public GameObject PlayerWeaponSlot;
+    public GameObject talentUi;
 
     private void Awake()
     {
@@ -16,6 +17,8 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         InventoryUi = GameObject.Find("InventoryUI");
+        talentUi = GameObject.Find("TalentUI");
+        talentUi.SetActive(false);
         InventoryUi.SetActive(false);
         ToolTip = "";
     }
@@ -23,12 +26,17 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && !talentUi.activeSelf)
         {
             GameManager.gm.Dropping = !InventoryUi.activeSelf;
             GameManager.gm.Dropping = false;
             ToolTip = "";
             InventoryUi.SetActive(!InventoryUi.activeSelf);
+        }
+
+        if (Input.GetKeyDown(KeyCode.N) && !InventoryUi.activeSelf)
+        {
+            talentUi.SetActive(!talentUi.activeSelf);
         }
 
         if (PlayerWeaponSlot.transform.childCount > 0)
