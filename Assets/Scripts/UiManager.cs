@@ -8,6 +8,7 @@ public class UiManager : MonoBehaviour
     public GameObject InventoryUi;
     public GameObject PlayerWeaponSlot;
     public GameObject talentUi;
+    public GameObject LevelMaxUi;
 
     private void Awake()
     {
@@ -18,8 +19,10 @@ public class UiManager : MonoBehaviour
     {
         InventoryUi = GameObject.Find("InventoryUI");
         talentUi = GameObject.Find("TalentUI");
+        LevelMaxUi = GameObject.Find("LevelMaxUi");
         talentUi.SetActive(false);
         InventoryUi.SetActive(false);
+        LevelMaxUi.SetActive(false);
         ToolTip = "";
     }
 

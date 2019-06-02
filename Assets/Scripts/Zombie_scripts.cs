@@ -26,7 +26,7 @@ public class Zombie_scripts : MonoBehaviour
     public float maxDMG;
     public float baseDMG;
     public int level;
-    public int xp;
+    public long xp;
     public int money;
 
     private bool m_isDead = false;

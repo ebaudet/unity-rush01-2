@@ -53,7 +53,7 @@ public class Teleport : MonoBehaviour
         while (counter < duration)
         {
             counter += Time.deltaTime;
-            float colorTime = counter / duration;
+            // float colorTime = counter / duration;
             targetLight.color = Color.Lerp(fromColor, toColor, counter / duration);
             yield return null;
         }

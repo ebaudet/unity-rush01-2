@@ -16,16 +16,20 @@ public class Move_maya : MonoBehaviour
     public int STR;
     public int AGI;
     public int CON;
-    /*[Range(150, 170)]*/
+    [Range(0, 170)]
     public int ARMOR;
     public float hp;
     public float minDMG;
     public float maxDMG;
     public float baseDMG;
+
+    [Space]
+    [Header("Mana Stats")]
+    [Range(1, 50)]
     public int level;
-    public int xp;
+    public long xp;
     public int money;
-    public int xpForNext;
+    public long xpForNext;
     public int stats_point;
 
     public Weapons Weapon;
@@ -36,6 +40,13 @@ public class Move_maya : MonoBehaviour
     public RaycastHit hit;
     public Zombie_scripts zombie_stats;
     public GameObject die_panel;
+    public UiManager UiManager;
+
+    private void Awake()
+    {
+        if (!UiManager)
+            UiManager = GameObject.Find("HUD Player").GetComponent<UiManager>();
+    }
 
     // Use this for initialization
     void Start()
@@ -166,12 +177,25 @@ public class Move_maya : MonoBehaviour
         }
     }
 
-    public void LevelUp()
+    public bool LevelUp()
     {
-        xp -= xpForNext;
-        level += 1;
-        stats_point += 5;
-        xpForNext = (int)(xpForNext * 1.5);
-        set_stats();
+        if (level < 50)
+        {
+            xp = (xp - xpForNext) < 0 ? 0 : (xp - xpForNext);
+            level += 1;
+            stats_point += 5;
+            xpForNext = (int)(xpForNext * 1.25f);
+            set_stats();
+            return true;
+        }
+        StartCoroutine(BlinkCR(UiManager.LevelMaxUi, 0.5f));
+        return false;
+    }
+
+    IEnumerator BlinkCR(GameObject object_to_blink, float time)
+    {
+        object_to_blink.SetActive(true);
+        yield return new WaitForSeconds(time);
+        object_to_blink.SetActive(false);
     }
 }
