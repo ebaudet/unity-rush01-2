@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class Move_maya : MonoBehaviour
 {
+
 
     public Animator animator;
     public float atk_range;
@@ -116,12 +118,13 @@ public class Move_maya : MonoBehaviour
                 nav.SetDestination(transform.position);
             }
         }
-        if (Input.GetMouseButton(0) && !isazombie)
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            move();
+            if (Input.GetMouseButton(0) && !isazombie)
+                move();
+            if (Input.GetMouseButtonUp(0))
+                isazombie = false;
         }
-        if (Input.GetMouseButtonUp(0))
-            isazombie = false;
         if (hp <= 0)
         {
             animator.SetInteger("State", 3);
