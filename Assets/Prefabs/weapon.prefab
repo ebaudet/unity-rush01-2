@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224481302570155364}
-  - component: {fileID: 114138101549283732}
-  - component: {fileID: 114431166903912762}
+  - component: {fileID: 114343552840749744}
+  - component: {fileID: 114202213192644058}
   - component: {fileID: 65688767195863258}
   - component: {fileID: 222814385096827156}
   - component: {fileID: 114291318444427994}
@@ -44,7 +44,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114138101549283732
+--- !u!114 &114202213192644058
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,10 +52,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639330528519440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b60d43de401d4d1cbe60e9b1ab404ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 1858d0572621e49b9bcb750fab25222b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toolTip: test
+  AttackMin: 5
+  AttackMax: 10
+  Damage: 0
+  AttackSpeed: 0
+  AttackSpeedMin: 1
+  AttackSpeedMax: 2
+  Rarity: 0
+  ToolTip: {fileID: 0}
 --- !u!114 &114291318444427994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,7 +90,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114431166903912762
+--- !u!114 &114343552840749744
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -91,18 +98,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639330528519440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aefdc9d895724a03b28264f322c0e89, type: 3}
+  m_Script: {fileID: 11500000, guid: 50b92eebba0c54725a9ad4034ec3594b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
-  attackMin: 5
-  attackMax: 10
-  Damage: 0
-  AttackSpeed: 0
-  toolTip: {fileID: 114138101549283732}
-  AttackSpeedMin: 1
-  AttackSpeedMax: 2
-  rarity: 0
+  toolTip: test
 --- !u!114 &114477545748831770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c67a56d62e94747b8f17db1b0ffc1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSkill: 0
 --- !u!222 &222814385096827156
 CanvasRenderer:
   m_ObjectHideFlags: 1

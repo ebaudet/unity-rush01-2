@@ -16,6 +16,7 @@ public class Zombie_scripts : MonoBehaviour
     public Move_maya player_stats;
     public bool ishiting;
     public GameObject health_pot;
+    public Weapons DropWeapon;
 
     public int STR;
     public int AGI;
@@ -111,6 +112,8 @@ public class Zombie_scripts : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
         }
+        GameObject tmp = Instantiate(DropWeapon, transform.position, Quaternion.identity).gameObject;
+        tmp.transform.position = gameObject.transform.position + (Vector3.up * 3) + Vector3.left;
         if (Random.Range(1, 10) > 5)
             Instantiate(health_pot, (transform.position + (Vector3.up * 3)), transform.rotation);
         Destroy(this.gameObject);

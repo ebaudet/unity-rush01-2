@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Move_maya : MonoBehaviour {
+public class Move_maya : MonoBehaviour
+{
 
     public Animator animator;
     public float atk_range;
@@ -13,7 +14,8 @@ public class Move_maya : MonoBehaviour {
     public int STR;
     public int AGI;
     public int CON;
-    [Range(150, 170)] public int ARMOR;
+    /*[Range(150, 170)]*/
+    public int ARMOR;
     public float hp;
     public float minDMG;
     public float maxDMG;
@@ -27,14 +29,15 @@ public class Move_maya : MonoBehaviour {
     public Weapons Weapon;
 
     private NavMeshPath path;
-	private NavMeshAgent nav;
+    private NavMeshAgent nav;
     private Transform target;
     public RaycastHit hit;
     public Zombie_scripts zombie_stats;
     public GameObject die_panel;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         isazombie = false;
         target = null;
         nav = GetComponent<NavMeshAgent>();
@@ -49,7 +52,7 @@ public class Move_maya : MonoBehaviour {
         stats_point = 0;
 
         set_stats();
-	}
+    }
 
     public void plus_for()
     {
@@ -78,9 +81,10 @@ public class Move_maya : MonoBehaviour {
         minDMG = STR / 2;
         maxDMG = minDMG + 4;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (target)
         {
             if (tag == "zombie")
@@ -98,14 +102,14 @@ public class Move_maya : MonoBehaviour {
             }
             else
             {
-    			if (nav.hasPath)
-    			{
-    				animator.SetInteger("State", 1);
-    			}
-    			else
-    			{
-    				animator.SetInteger("State", 0);
-    			}
+                if (nav.hasPath)
+                {
+                    animator.SetInteger("State", 1);
+                }
+                else
+                {
+                    animator.SetInteger("State", 0);
+                }
             }
             if (target.GetComponent<Zombie_scripts>() && target.GetComponent<Zombie_scripts>().hp <= 0)
             {
@@ -124,7 +128,7 @@ public class Move_maya : MonoBehaviour {
             die_panel.SetActive(true);
             this.enabled = false;
         }
-	}
+    }
 
     public void move()
     {
@@ -138,16 +142,16 @@ public class Move_maya : MonoBehaviour {
             if (tag == "zombie")
             {
                 zombie_stats = target.GetComponent<Zombie_scripts>();
-				isazombie = true;
+                isazombie = true;
             }
         }
     }
 
     public void attack()
     {
-        if (Random.Range(0,100) < (75 + AGI - zombie_stats.AGI))
+        if (Random.Range(0, 100) < (75 + AGI - zombie_stats.AGI))
         {
-            zombie_stats.hp -= (int) (Random.Range(minDMG,maxDMG) *(1 - zombie_stats.ARMOR / 200));
+            zombie_stats.hp -= (int)(Random.Range(minDMG, maxDMG) * (1 - zombie_stats.ARMOR / 200));
             Debug.Log((int)(Random.Range(minDMG, maxDMG) * (1 - zombie_stats.ARMOR / 200)));
             if (zombie_stats.hp <= 0)
             {

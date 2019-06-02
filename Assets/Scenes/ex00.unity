@@ -1261,8 +1261,16 @@ MonoBehaviour:
   dropping: 0
   Player: {fileID: 1073904420}
   Inventory: {fileID: 0}
-  WeaponSkin: []
-  WeaponIcon: []
+  WeaponSkin:
+  - {fileID: 124902, guid: 9fa4b42aeea124c4aa345f7293d00504, type: 2}
+  - {fileID: 109204, guid: dc9c7e27eeaecdb469417d0fc55fe21a, type: 2}
+  - {fileID: 153852, guid: add76813523167e4c81baf28f457b2ce, type: 2}
+  - {fileID: 125268, guid: 3edd4005bea378c4ca826869dc2e5b95, type: 2}
+  WeaponIcon:
+  - {fileID: 212381779874089588, guid: 709b0e2d50e7b4d35b75df03be401d14, type: 2}
+  - {fileID: 212644014385505466, guid: 0f1494645499a4a838db27b38b784456, type: 2}
+  - {fileID: 212485505254534526, guid: b093c907eb1034fd4aba7b37eba23359, type: 2}
+  - {fileID: 212790460695244688, guid: 81ce985b823dd4c59b2829fd0dfee481, type: 2}
   Dropping: 0
 --- !u!1 &530500886
 GameObject:
