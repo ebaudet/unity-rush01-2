@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class Stats_2 : MonoBehaviour
 {
-
     public Move_maya player_stats;
     public Text txt;
-   
+
     // Update is called once per frame
     void Update()
     {

@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Move_maya : MonoBehaviour {
 
-
     public Animator animator;
     public float atk_range;
     public string tag;
@@ -14,7 +13,7 @@ public class Move_maya : MonoBehaviour {
     public int STR;
     public int AGI;
     public int CON;
-	public int ARMOR;
+    [Range(150, 170)] public int ARMOR;
     public float hp;
     public float minDMG;
     public float maxDMG;
@@ -25,7 +24,7 @@ public class Move_maya : MonoBehaviour {
     public int xpForNext;
     public int stats_point;
 
-
+    public Weapons Weapon;
 
     private NavMeshPath path;
 	private NavMeshAgent nav;

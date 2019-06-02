@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Zombie_scripts : MonoBehaviour
 {
-
     public Transform player;
     public bool ischasing;
     private NavMeshAgent nav;
@@ -17,7 +16,6 @@ public class Zombie_scripts : MonoBehaviour
     public Move_maya player_stats;
     public bool ishiting;
     public GameObject health_pot;
-
 
     public int STR;
     public int AGI;
@@ -37,9 +35,9 @@ public class Zombie_scripts : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         animator = GetComponent<Animator>();
         nav = GetComponent<NavMeshAgent>();
-		player_stats = player.GetComponent<Move_maya>();
+        player_stats = player.GetComponent<Move_maya>();
 
-		level = player_stats.level;
+        level = player_stats.level;
         // + 15% par lvl
         CON = (int)(2 * (1 + 0.4 * (level - 1)));
         AGI = (int)(10 * (1 + 0.4 * (level - 1)));
@@ -56,30 +54,30 @@ public class Zombie_scripts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( hp > 0)
+        if (hp > 0)
         {
-			if (Vector3.Distance(player.position, transform.position) < range)
-				ischasing = true;
+            if (Vector3.Distance(player.position, transform.position) < range)
+                ischasing = true;
             if (Vector3.Distance(player.position, transform.position) < atk_range && player_stats.hp > 0)
-			{
-				ischasing = false;
+            {
+                ischasing = false;
                 animator.SetInteger("State", 2);
-				nav.SetDestination(transform.position);
-			}
+                nav.SetDestination(transform.position);
+            }
             if (player_stats.hp < 0)
             {
                 ischasing = false;
                 animator.SetInteger("State", 0);
                 nav.SetDestination(transform.position);
             }
-			if (ischasing && player)
-			{
-				nav.SetDestination(player.position);
-			}
+            if (ischasing && player)
+            {
+                nav.SetDestination(player.position);
+            }
             if (nav.hasPath)
-			{
-				animator.SetInteger("State", 1);
-			}
+            {
+                animator.SetInteger("State", 1);
+            }
         }
         else if (m_isDead == false)
         {
@@ -103,18 +101,18 @@ public class Zombie_scripts : MonoBehaviour
     IEnumerator Die()
     {
         m_isDead = true;
-		animator.SetInteger("State", 3);
+        animator.SetInteger("State", 3);
         yield return new WaitForSeconds(5f);
 
-        for (float i= 0f; i < 2f; i += Time.deltaTime)
+        for (float i = 0f; i < 2f; i += Time.deltaTime)
         {
             nav.enabled = false;
-			transform.Translate(Vector3.down * Time.deltaTime);
+            transform.Translate(Vector3.down * Time.deltaTime);
             yield return new WaitForEndOfFrame();
 
         }
-        if (Random.Range(1,10)>5)
-            Instantiate(health_pot, (transform.position + (Vector3.up*3)), transform.rotation);
+        if (Random.Range(1, 10) > 5)
+            Instantiate(health_pot, (transform.position + (Vector3.up * 3)), transform.rotation);
         Destroy(this.gameObject);
     }
 }
