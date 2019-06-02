@@ -9,6 +9,11 @@ public class Stats_1 : MonoBehaviour
     public Move_maya player;
     public Text txt;
 
+    private void Awake() {
+        if (!player)
+            player = GameObject.Find("Maya").GetComponent<Move_maya>();
+    }
+
     // Update is called once per frame
     void Update()
     {

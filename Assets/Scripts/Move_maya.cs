@@ -45,6 +45,9 @@ public class Move_maya : MonoBehaviour
     {
         if (!UiManager)
             UiManager = GameObject.Find("HUD Player").GetComponent<UiManager>();
+        if (!die_panel)
+            die_panel = GameObject.Find("Ecran de mort");
+            
         nav = GetComponent<NavMeshAgent>();
     }
 
@@ -96,7 +99,6 @@ public class Move_maya : MonoBehaviour
             if (tag == "zombie")
             {
                 nav.SetDestination(target.position);
-
             }
             else
                 nav.SetDestination(hit.point);

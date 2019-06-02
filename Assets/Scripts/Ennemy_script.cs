@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class Ennemy_script : MonoBehaviour
 {
-
     public Move_maya player;
     public Slider slider;
     public Text txt;
     public GameObject slider_go;
-    // Use this for initialization
+
+    private void Awake() {
+        if (!player)
+            player = GameObject.Find("Maya").GetComponent<Move_maya>();
+    }
+
     void Start()
     {
         slider_go.SetActive(false);

@@ -7,6 +7,11 @@ public class Stats_button : MonoBehaviour
     public GameObject stats_up;
     public Move_maya player;
 
+    private void Awake() {
+        if (!player)
+            player = GameObject.Find("Maya").GetComponent<Move_maya>();
+    }
+
     // Update is called once per frame
     void Update()
     {
